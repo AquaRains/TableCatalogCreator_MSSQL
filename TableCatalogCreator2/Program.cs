@@ -32,9 +32,10 @@ ORDER BY '테이블명'",null);
             //3. 테이블 목록을 좌측 글자 기준으로 쪼갬 ex:LSTD, LSE 등
             var tableNameList = (from DataRow dr in dt.Rows select dr[0].ToString()).ToList();
             List<List<string>> splitList = new List<List<string>>();
-            foreach(var item in (from string s in tableNameList select s.Split('_')[0]).Distinct())
+            var l = (from string s in tableNameList select s.Split('_')[0]).Distinct();
+            foreach (var item in l)
             {
-                splitList.Add((from string s in tableNameList where s.Split('_')[0] == item select s).ToList());
+                splitList.Add((from string s in l where s == item select s).ToList());
             }
 
             DataSet ds = new DataSet("Tables");

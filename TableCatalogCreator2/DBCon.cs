@@ -302,39 +302,6 @@ namespace TableCatalogCreator2
             }
         }
 
-        public int InsertDB(string QueryStr, SqlParameter[] sqlParameters)
-        {
-            return ExecuteQuery(QueryStr, sqlParameters);
-        }
-
-        public int UpdateDB(string QueryStr, SqlParameter[] sqlParameters)
-        {
-            return ExecuteQuery(QueryStr, sqlParameters);
-        }
-
-        public int DeleteDB(string sql)
-        {
-            //현재 우리 솔루션에는 삭제 쿼리가 없기 때문에, "삭제 여부" 항목을 수정하는 UPDATE 쿼리를 호출하면 됩니다.
-            string QueryStr = "";
-            SqlParameter[] sqlParameters = null;
-            return ExecuteQuery(QueryStr, sqlParameters);
-        }
-
-        public bool BackupDB()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool RestoreDB()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int RecordCount()
-        {
-            //SELECT 쿼리 fill 한 다음에 rowcount 세거나, COUNT(*)한 다음 첫 행의 값을 가져와서 반환하면 됩니다.
-            throw new NotImplementedException();
-        }
 
 
        
