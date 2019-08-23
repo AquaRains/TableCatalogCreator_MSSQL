@@ -23,7 +23,7 @@ namespace TableCatalogView
             string sql = $@"
 SELECT        NAME, (SELECT VALUE FROM SYS.EXTENDED_PROPERTIES WHERE MAJOR_ID = A.ID AND MINOR_ID = 0 ) COMMENT
 FROM SYSOBJECTS A
-WHERE RTRIM(A.XTYPE) = 'U' AND name like 'TBL_%'
+WHERE RTRIM(A.XTYPE) = 'U' -- AND name like 'TBL_%'
 ORDER BY NAME
 ";
             DataTable dt = SelectDB(connectionInfo, sql, null);
@@ -122,7 +122,7 @@ ORDER BY tab.name
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"{ e.ToString()}\n {e.GetType().ToString()}");
+                    Console.WriteLine($"{ e.ToString()}{Environment.NewLine} {e.GetType().ToString()}");
 
 
                     return new DataTable();
